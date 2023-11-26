@@ -25,30 +25,30 @@ function App() {
     } else if (weather.weather[0].icon === "01d" || weather.weather[0].icon === "02d") {
       return "bg-[url('/images/background-light.svg')]"
     } else {
-      return "bg-[url('/images/nocturno.jpg')]"
+      return "bg-[url('/images/nocturno.webp')]"
     }
   }
 
 
   const bgImages = {
-    "01d": "url(./images/background-day.svg)",
-    "02d": "url(./images/background-day.svg)",
-    "03d": "url(./images/background-cloudy.svg)",
-    "04d": "url(./images/background-cloudy.svg)",
-    "09d": "url(./images/background-rainy.svg)",
-    "10d": "url(./images/background-rainy.svg)",
-    "11d": "url(./images/background-stormy.svg)",
-    "13d": "url(./images/background-snowy.svg)",
-    "50d": "url(./images/background-foggy.svg)",
-    "01n": "url(./images/background-night.svg)",
-    "02n": "url(./images/background-night.svg)",
-    "03n": "url(./images/background-cloudy.svg)",
-    "04n": "url(./images/background-cloudy.svg)",
-    "09n": "url(./images/background-rainy.svg)",
-    "10n": "url(./images/background-rainy.svg)",
-    "11n": "url(./images/background-stormy.svg)",
-    "13n": "url(./images/background-snowy.svg)",
-    "50n": "url(./images/background-foggy.svg)",
+    "01d": "bg-[url('/images/background-day.svg')]",
+    "02d": "bg-[url('/images/background-day.svg')]",
+    "03d": "bg-[url('/images/background-cloudy.svg'])",
+    "04d": "bg-[url('/images/background-cloudy.svg'])",
+    "09d": "bg-[url('/images/background-rainy.svg')]",
+    "10d": "bg-[url('/images/background-rainy.svg')]",
+    "11d": "bg-[url('/images/background-stormy.svg'])",
+    "13d": "bg-[url('/images/background-snowy.svg')]",
+    "50d": "bg-[url('/images/background-foggy.svg')]",
+    "01n": "bg-[url('/images/background-night.svg')]",
+    "02n": "bg-[url('/images/background-night.svg')]",
+    "03n": "bg-[url('/images/background-cloudy.svg'])",
+    "04n": "bg-[url('/images/background-cloudy.svg'])",
+    "09n": "bg-[url('/images/background-rainy.svg')]",
+    "10n": "bg-[url('/images/background-rainy.svg')]",
+    "11n": "bg-[url('/images/background-stormy.svg'])",
+    "13n": "bg-[url('/images/background-snowy.svg')]",
+    "50n": "bg-[url('/images/background-foggy.svg')]",
   }
 
 
