@@ -54,22 +54,22 @@ const WeatherDetail = ({ weather }) => {
       <header className="p-6">
         <ul className="flex justify-between">
           <li>
-            <h4>Weather app</h4>
+            <h4>Climan en tu ciudad</h4>
           </li>
           <li>
             <input type="search" name="" id="" />
           </li>
           <li>
-            <button>dark/light</button>
+            <button>oscuro/claro</button>
           </li>
         </ul>
       </header>
-      <div className="grid gap-3 text-center lg:grid-cols-2">
+      <div className="grid gap-3 text-center lg:grid-cols-1">
         <h1 className="lg:col-span-2">
           {weather.name}, {weather.sys.country}
         </h1>
         {/* card de clima */}
-        <section className="bg-white/40 p-2 rounded-xl grid grid-cols-2 ">
+        <section className="bg-white/40 p-2 rounded-xl grid grid-cols-2 items-center">
           <h3 className="col-span-2">{weather.weather[0].description}</h3>
           <p className="text-6xl">{changeMetric()}</p>
           <div className="flex justify-center">
@@ -79,12 +79,12 @@ const WeatherDetail = ({ weather }) => {
             />
           </div>
         </section>
-        <section className="grid grid-cols-3 lg:grid lg:grid-cols-1 justify-items-center bg-white/40 rounded-xl">
+        <section className="grid grid-cols-3 lg:grid lg:grid-cols-2 gap-4 items-center bg-white/40 rounded-xl p-6">
           <div className="flex gap-1">
             <div>
               <img src="/images/ico_weather-windy.svg" alt="Wind speed icon" />
             </div>
-            <span>{weather.wind.speed} m/s</span>
+            <span>{weather.wind.speed}m/s</span>
           </div>
           <div className="flex gap-1">
             <div>
@@ -105,8 +105,9 @@ const WeatherDetail = ({ weather }) => {
       </div>
       <button
         onClick={changeUnit}
-        className="p-2 rounded-lg bg-slate-700 text-white" >
-        {unit === "celcius" ? "Fahrenheit" : "Celcius"}
+        className="p-2 rounded-lg bg-slate-700 text-white
+        hover:bg-blue-600 hover:border-2 hover:border-blue-500" >
+        {unit === "celcius" ? "Ver en Fahrenheit" : "Ver en Celcius"}
       </button>
     </article>
   );
