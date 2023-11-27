@@ -4,7 +4,7 @@ import axios from "axios";
 
 const WeatherDetail = ({ weather }) => {
   const [unit, setUnit] = useState("celcius");
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState();
 
   const changeUnit = () => {
     let metric = "";
@@ -56,7 +56,6 @@ const WeatherDetail = ({ weather }) => {
     /* CITY SEARCH */
   }
   const searchWeather = (event, city) => {
-    console.log(city)
     if (event.preventDefault) {
       event.preventDefault();
     }
@@ -64,7 +63,7 @@ const WeatherDetail = ({ weather }) => {
       city = event.target.city.value.toLowerCase();
     }
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e2b798872fb193be0d21ac89f2f0299d&lang=sp&units=metric`;
-
+    console.log(apiUrl)
     axios
       .get(apiUrl)
       .then(({ city }) => setCity(city))
@@ -72,51 +71,40 @@ const WeatherDetail = ({ weather }) => {
   };
 
   useEffect(() => {
-    searchWeather({}, "Tuxtla Gutiérrez");
-  }, []);
+    searchWeather({}, "Miami");
+  });
 
   return (
     <article
       className="lg:w-2/4 grid gap-4 bg-yellow-400 bg-opacity-80 rounded-xl p-6
                 dark:bg-indigo-400 dark:bg-opacity-40"
     >
-      <header className="p-2 border-2 border-cyan-400">
-        <ul className="grid grid-cols-2 border-2 border-cyan-400">
-          <li className="align-middle col-span-2 text-center font-semibold text-2xl mb-3">
-            <h4>Clima en tu ciudad</h4>
-          </li>
-          <li className="border-2 border-cyan-400 w-auto">
+      <header className="p-2 ">
+        <div className="grid grid-cols-1">
+          <div className="justify-items-stretch font-semibold text-2xl mb-3 text-center">
+            <h4 className="w-5/6">Clima en tu ciudad</h4>    
+          </div>
+          <div className=" ">
               <form onSubmit={searchWeather}>
                   <input
-                    className="p-3 m-2 rounded-xl"
+                    className="p-3 m-2 rounded-xl w-5/6"
                     type="search"
                     name="city"
                     id="city"
-                    // value={city}
+                    value={city}
                     placeholder="Nombre de la ciudad"
-                    // onChange={handleCityChange}
                   />
                   <button
-                    className="border-4 rounded-full p-3 border-b-slate-900 text-slate-900
+                    className="border-4 rounded-full p-3 border-b-slate-900 text-slate-900 
                                 hover:border-b-slate-900 hover:bg-slate-900 hover:text-slate-500
                                 dark:border-b-white-400 dark:text-white "
                   >
                     <IconSearch className="block " />
                   </button>
               </form>
-          </li>
-          <li className="border-2 border-cyan-400 w-auto">
-            <button
-              onClick={toggleTheme}
-              className="border-4 rounded-full p-3 border-b-slate-900 text-slate-900
-                        hover:border-b-slate-900 hover:bg-slate-900 hover:text-slate-500 
-                        dark:border-b-white-400 dark:text-white "
-            >
-              <IconMoonFilled className="block dark:hidden" />
-              <IconSunFilled className="hidden dark:block" />
-            </button>
-          </li>
-        </ul>
+          </div>
+    
+        </div>
       </header>
       <div className="grid gap-3 text-center lg:grid-cols-1">
         <h1 className="lg:col-span-2 uppercase">
@@ -173,13 +161,23 @@ const WeatherDetail = ({ weather }) => {
           </div>
         </section>
       </div>
-      <button
-        onClick={changeUnit}
-        className="p-2 rounded-lg bg-yellow-700 text-white border-2 border-yellow-500 hover:bg-yellow-600 hover:text-black
-        dark:bg-slate-700 dark:hover:text-white dark:hover:bg-slate-600 dark:border-slate-500 dark:text-black"
-      >
-        {unit === "celcius" ? "Ver en Fahrenheit" : "Ver en Celcius"}
-      </button>
+      <div className="flex content-around gap-5">
+        <button
+          onClick={changeUnit}
+          className="p-2 rounded-lg bg-yellow-700 text-white border-2 border-yellow-500 hover:bg-yellow-600 hover:text-black
+          dark:bg-slate-700 dark:hover:text-white dark:hover:bg-slate-600 dark:border-slate-500 dark:text-black w-5/6">
+          {unit === "celcius" ? "Ver en Fahrenheit" : "Ver en Celcius"}
+        </button>
+        <button
+                onClick={toggleTheme}
+                className="border-4 rounded-full p-3 border-b-slate-900 text-slate-900
+                          hover:border-b-slate-900 hover:bg-slate-900 hover:text-slate-500 
+                          dark:border-b-white-400 dark:text-white inline-block"
+              >
+                <IconMoonFilled className="block dark:hidden" />
+                <IconSunFilled className="hidden dark:block" />
+              </button>
+      </div>
     </article>
   );
 };
