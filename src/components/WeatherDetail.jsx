@@ -50,7 +50,7 @@ const WeatherDetail = ({ weather }) => {
   // }
 
   return (
-    <article className="lg:w-2/4 grid gap-4 bg-indigo-400 bg-opacity-40 rounded-xl">
+    <article className="lg:w-2/4 grid gap-4 bg-indigo-400 bg-opacity-40 rounded-xl p-6">
       <header className="p-6">
         <ul className="flex justify-between">
           <li>

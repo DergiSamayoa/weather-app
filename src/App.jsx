@@ -36,7 +36,7 @@ function App() {
   }
 
   return (
-    <main className={`flex justify-center items-center h-screen bg-cover bg-no-repeat ${background()}`}>
+    <main className={`flex justify-center items-center h-screen bg-center bg-cover bg-no-repeat ${background()}`}>
       {        
         weather === null
         ? <LoaderWaiting />
