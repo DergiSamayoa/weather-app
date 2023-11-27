@@ -28,33 +28,12 @@ const WeatherDetail = ({ weather }) => {
     changeMetric();
   });
 
-  // const bgImages = {
-  //   "01d": "url(./images/background-day.svg)",
-  //   "02d": "url(./images/background-day.svg)",
-  //   "03d": "url(./images/background-cloudy.svg)",
-  //   "04d": "url(./images/background-cloudy.svg)",
-  //   "09d": "url(./images/background-rainy.svg)",
-  //   "10d": "url(./images/background-rainy.svg)",
-  //   "11d": "url(./images/background-stormy.svg)",
-  //   "13d": "url(./images/background-snowy.svg)",
-  //   "50d": "url(./images/background-foggy.svg)",
-  //   "01n": "url(./images/background-night.svg)",
-  //   "02n": "url(./images/background-night.svg)",
-  //   "03n": "url(./images/background-cloudy.svg)",
-  //   "04n": "url(./images/background-cloudy.svg)",
-  //   "09n": "url(./images/background-rainy.svg)",
-  //   "10n": "url(./images/background-rainy.svg)",
-  //   "11n": "url(./images/background-stormy.svg)",
-  //   "13n": "url(./images/background-snowy.svg)",
-  //   "50n": "url(./images/background-foggy.svg)",
-  // }
-
   return (
     <article className="lg:w-2/4 grid gap-4 bg-indigo-400 bg-opacity-40 rounded-xl p-6">
       <header className="p-6">
         <ul className="flex justify-between">
           <li>
-            <h4>Climan en tu ciudad</h4>
+            <h4>Clima en tu ciudad</h4>
           </li>
           <li>
             <input type="search" name="" id="" />
@@ -79,14 +58,18 @@ const WeatherDetail = ({ weather }) => {
             />
           </div>
         </section>
-        <section className="grid grid-cols-3 lg:grid lg:grid-cols-2 gap-4 items-center bg-white/40 rounded-xl p-6">
-          <div className="flex gap-1">
+        <section className="grid grid-cols-3 lg:grid lg:grid-cols-1 gap-4 items-center bg-white/40 rounded-xl p-6">
+          <div className="grid grid-cols-2 py-2 
+                  lg:border-b-4 lg:border-r-0 lg:border-b-slate-600 
+                  border-r-4 border-r-slate-600">
             <div>
               <img src="/images/ico_weather-windy.svg" alt="Wind speed icon" />
             </div>
             <span>{weather.wind.speed}m/s</span>
           </div>
-          <div className="flex gap-1">
+          <div className="grid grid-cols-2 py-2 
+                  lg:border-b-4 lg:border-r-0 lg:border-b-slate-600 
+                  border-r-4 border-r-slate-600">
             <div>
               <img
                 src="/images/ico_weather_raindrops.svg"
@@ -95,7 +78,7 @@ const WeatherDetail = ({ weather }) => {
             </div>
             <span>{weather.main.humidity}%</span>
           </div>
-          <div className="flex gap-1">
+          <div className="grid grid-cols-2 py-2 ">
             <div>
               <img src="/images/ico_weather_pressure.svg" alt="Pressure icon" />
             </div>
