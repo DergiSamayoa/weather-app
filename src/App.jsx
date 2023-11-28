@@ -5,7 +5,7 @@ import LoaderWaiting from "./components/LoaderWaiting";
 
 function App() {
 
-  const [weather, setWeather] = useState(null)
+  const [weatherApp, setWeather] = useState(null)
 
   const success = (position) => {
     const { coords: { latitude, longitude } } = position
@@ -19,31 +19,33 @@ function App() {
     navigator.geolocation.getCurrentPosition(success)
   }, []);
 
+  
+
   const background = () => {
     let image = ""
-    if (weather === null) {
+    if (weatherApp === null) {
       image = "bg-[url('/images/background-light.svg')]"
-    } else if (weather.weather[0].icon === "01d" || weather.weather[0].icon === "02d") {
+    } else if (weatherApp.weather[0].icon === "01d" || weatherApp.weather[0].icon === "02d") {
       image = "bg-[url('/images/day.jpg')]"
-    } else if (weather.weather[0].icon === "01n" || weather.weather[0].icon === "02n") {
+    } else if (weatherApp.weather[0].icon === "01n" || weatherApp.weather[0].icon === "02n") {
       image = "bg-[url('/images/night.webp')]"
-    } else if (weather.weather[0].icon === "03d" || weather.weather[0].icon === "04d") {
+    } else if (weatherApp.weather[0].icon === "03d" || weatherApp.weather[0].icon === "04d") {
       image = "bg-[url('/images/cloudy-day.jpg')]"
-    } else if (weather.weather[0].icon === "03n" || weather.weather[0].icon === "04n") {
+    } else if (weatherApp.weather[0].icon === "03n" || weatherApp.weather[0].icon === "04n") {
       image = "bg-[url('/images/cloudy-night.jpg')]"
-    } else if (weather.weather[0].icon === "09d" || weather.weather[0].icon === "10d") {
+    } else if (weatherApp.weather[0].icon === "09d" || weatherApp.weather[0].icon === "10d") {
       image = "bg-[url('/images/rainy-day.webp')]"
-    } else if (weather.weather[0].icon === "09n" || weather.weather[0].icon === "10n") {
+    } else if (weatherApp.weather[0].icon === "09n" || weatherApp.weather[0].icon === "10n") {
       image = "bg-[url('/images/rainy-night.webp')]"
-    } else if (weather.weather[0].icon === "11d") {
+    } else if (weatherApp.weather[0].icon === "11d") {
       image = "bg-[url('/images/stormy-day.webp')]"
-    } else if (weather.weather[0].icon === "11n") {
+    } else if (weatherApp.weather[0].icon === "11n") {
       image = "bg-[url('/images/stormy-night.webp')]"
-    } else if (weather.weather[0].icon === "13d") {
+    } else if (weatherApp.weather[0].icon === "13d") {
       image = "bg-[url('/images/snowy-day.webp')]"
-    } else if (weather.weather[0].icon === "13n") {
+    } else if (weatherApp.weather[0].icon === "13n") {
       image = "bg-[url('/images/snowy-night.webp')]"
-    } else if (weather.weather[0].icon === "50d") {
+    } else if (weatherApp.weather[0].icon === "50d") {
       image = "bg-[url('/images/foggy-day.jpg')]"
     } else {
       image = "bg-[url('/images/foggy-night.jpg')]"
@@ -54,9 +56,9 @@ function App() {
   return (
     <main className={`flex justify-center items-center h-screen bg-center bg-cover bg-no-repeat ${background()}`}>
       {        
-        weather === null
+        weatherApp === null
         ? <LoaderWaiting />
-        : <WeatherDetail weather={weather}/>
+        : <WeatherDetail weatherApp={weatherApp}/>
       }
     </main>
   )
