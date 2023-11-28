@@ -5,7 +5,6 @@ import LoaderWaiting from "./components/LoaderWaiting";
 import backgrounds from "./utils/backgrounds";
 
 function App() {
-  const [background, setBackground] = useState('');
   const [weatherApp, setWeather] = useState(null)
 
   const success = (position) => {
