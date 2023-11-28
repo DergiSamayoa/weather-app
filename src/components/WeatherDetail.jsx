@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { IconMoonFilled, IconSearch, IconSunFilled } from "@tabler/icons-react";
 import axios from "axios";
 
-const WeatherDetail = ({ weatherApp }) => {
-  const [weather, setWeather] = useState(weatherApp);
+const WeatherDetail = ({ weather, setWeather }) => {
   const [unit, setUnit] = useState("celcius");
-  // const [weather, setWeather] = useState("miami");
   
   const searchWeather = (event, city) => {
     if (event.preventDefault) {
@@ -18,17 +16,11 @@ const WeatherDetail = ({ weatherApp }) => {
       axios
         .get(apiUrl)
         .then(({data}) => setWeather(data))
-        .catch((error) => console.log("Error al obtener el clima:", error));      
-      console.log(weather)
+        .catch((error) => console.log("Error al obtener el clima:", error))
     } else {
-      setWeather(weatherApp)
+      setWeather(weather)
     }
-    
   };
-
-  // useEffect(() => {
-  //   searchWeather({})
-  // });
 
   const changeUnit = () => {
     let metric = "";
